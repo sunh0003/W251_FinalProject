@@ -47,7 +47,14 @@ The architecture of the transfer learning model consists of Resnet50 and one add
 ![Test Image 6](images/resnet50.png?raw=true)
 
 ## 4. Pipeline
+The pipeline of virtual classroom TA prototype is shown below. The local PC was used to collect data, preprocess data, and manage the virtual machine. The preprocessing steps included resizing the image, data augmentation, changing image color to RGB or grey, and so forth. The local PC was also used to conduct EDA. 
 
+The customized dataset was collected using Jetson TX2. Customized python scripts were run to collect images from an external webcam camera with 30 FPS speed. After that, the individual face is cropped by using the openCV face detection Haar Cascades model. We collected a total of 4000 images in 3 classes (happy, confused, surprised), split the images into train/test with 7:3 ratio, and then uploaded the images to the IBM cloud virtual instance. 
+
+One P100 virtual server is provisioned on IBM cloud with Ubuntu 18.4 operating system and tensorflow, CUDA 10.0. We containerized the code via Docker image and the framework for our model is Keras. We leverage transfer learning from ResNet50 with pre-trained weights and add one last layer to make the prediction for 3 classes. We also conducted hyperparameter tuning to optimize the model performance. In this part (on VM in the cloud), it is an iterative process. We tried with various datasets (section 2) to build different models (section 3). Eventually customized dataset (224x224 pixel color image) and transfer learning model were selected as our final model. 
+
+Prototype outputs are visualized using Jetson TX2. For real-time face emotion detection, we load the final model weights in Jetson TX2, and output the emotion classes on the screen with classification text. The second product is emotion timeline, we basically run a python script on Jetson TX2 to crop out the face and make prediction of emotion using our final model. Plot the emission summary curve graph as our final output. For more details please see section 5 for end products. 
+<img src="images/pipeline.png width="500" title="hover text">
 ## 5. End Product
 ## 6. Model Performance
 ## 7. Future Steps
