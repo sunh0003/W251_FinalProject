@@ -5,7 +5,7 @@ By the end of 2019, virtual classrooms have been mostly used to deliver higher e
 
 There are many commercial softwares to facilitate virtual classrooms, with Zoom, the video chatting application as the leading player. Compared to December 2019, the daily users in Zoom meetings increased by 20 folds in March 2020 and has kept increasing as of today.
 
-![Test Image 1](intro.png)
+![alt text](https://github.com/sunh0003/W251_FinalProject/tree/master/images/intro.png)
 
 Despite all the benefits virtual classrooms can bring in, there is still concern that the productivity may not be comparable to that of the face-to-face classrooms. Generally, people are not quite sure about the effectiveness of course delivery and the engagement of students. Here we would like to introduce Virtual TA, a prototype of deep learning based facial expression recognition application, which monitors students’ instant facial expressions and helps the teacher to address confusion or misunderstanding immediately and to maintain the students’ engagements and motivations. 
 
