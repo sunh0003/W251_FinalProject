@@ -5,7 +5,7 @@ By the end of 2019, virtual classrooms have been mostly used to deliver higher e
 
 There are many commercial softwares to facilitate virtual classrooms, with Zoom, the video chatting application as the leading player. Compared to December 2019, the daily users in Zoom meetings increased by 20 folds in March 2020 and has kept increasing as of today.
 
-![Alt text](images/intro.png?raw=true "Fig1-1, introduction")
+<img src="images/intro.png" width="800">
 
 Despite all the benefits virtual classrooms can bring in, there is still concern that the productivity may not be comparable to that of the face-to-face classrooms. Generally, people are not quite sure about the effectiveness of course delivery and the engagement of students. Here we would like to introduce Virtual TA, a prototype of deep learning based facial expression recognition application, which monitors students’ instant facial expressions and helps the teacher to address confusion or misunderstanding immediately and to maintain the students’ engagements and motivations. 
 
@@ -17,21 +17,21 @@ The model used by Virtual TA for facial recognition and expression classificatio
 ### 2.1 Kaggle competition dataset
 Initial dataset was downloaded from Kaggle competition “Facial expression recognition with deep learning”. The dataset consists of 36000 images for 7 classes, which are Angry, Disgust, Fear, Happy, Sad, Surprise, and Neutral. The images are 48x48 pixels and grey in color. However, the problem of using this dataset is first, it doesn’t have any asain face and second, it doesn’t have the class of most interest. We tried to generate the missing part of data and combine it with the Kaggle dataset but didn’t see significant improvements on model performance. We hypothesized that higher resolution may be needed so we decided not to use this dataset for model training and validation.
 
-![Test Image 2](images/kaggle_dataset.png?raw=true)
+<img src="images/kaggle_dataset.png" width="400">
 ### 2.2 Cohn-Kanade (CK) AU-Coded Facial Expression dataset
 The Cohn-Kanade (CK) AU-coded Facial Expression dataset includes 2000 images sequences from over 200 subjects (university students). This dataset was analysed by Cohn, Zlochower, LIen, & Kanade (1999) and by Lien, Kanade, Cohn, & Li (2000). These papers can be downloaded from http://www.cs.cmu.edu/~face. These images are 480x480 pixels with grey scale. The image sequences from neutral to target motion and the target emotion is the last frame (as shown below). The final frame of each image sequence was coded using FACS (Facial Action Coding System) which describes subjects’s expression in terms of action units (AUs). An Excel spreadsheet containing these FACS codes is available for our analysis. We did a round of investigation of these images and did not use this set of images in our final model to the complexity of the FACS coding system as well as the image sequence. The image sequence makes it harder for us to tell which image we need to use in our training model. 
 
-![Test Image 3](images/CK_dataset.png?raw=true)
+<img src="images/CK_dataset.png" width="500">
 ### 2.3 Custom dataset
 For our final model, we eventually chose to use our own custom dataset. This dataset contains more than 4000 images from 6 subjects and the sample images are shown below. The images are 224x224 pixels with color scale (RGB). This dataset contains 3 classes which are confused, happy, and surprised. The image was captured by Jetson TX2, face is cropped to 224x224 using the open-cv face detection using Haar Cascades similar to HW03. After faces are cropped out and categorized into different classes, images are uploaded to VM in ibm cloud for training/testing the model. 
 
-![Test Image 4](images/us_dataset.png?raw=true)
+<img src="images/us_dataset.png" width="800">
 
 ## 3. Model
 ### 3.1 Model 1 - Kaggle Competition model
 Kaggle hosted the competition for facial emotion recognition in 2016. In this competition, 7 classes of facial emotions (Angry, Disgust, Fear, Happy, Sad, Surprise, and Neutral) are classified using CNN model. For our project, we are interested in identifying students’ confusion and distraction emotion. Hence we add two more classes (confused and distraction) to the input with custom labelled data.  The model architecture is shown below with 4 convolution layers and 2 fully connected dense layers. Batch normalization and dropout are used to future improve model performance. The model loss function is categorical cross-entropy and the model optimizer is Adam. Model loss and accuracy were plotted for at different epochs. The train accuracy is 0.75 while test accuracy is 0.62. Based on the confusion matrix (normalized) results, one can see that the model has poor performance. The model generalized the facial emotions more to “happy”, “neutral” and “sad”. We also conduct real-time tests with jetson TX2 webcam and the model is not able to correctly classify facial emotions. One possible reason for low model performance is the resolution of the image and the color of the image (grey). Lower resolution and grey color mean that there are less features to extract and generalize the model prediction. Therefore we tried to improve the model performance by using customized RGB images with high resolution (224x224).
 
-![Test Image 5](images/kagglemodel.png?raw=true)
+<img src="images/kagglemodel.png" width="800">
 
 ### 3.2 Model 2 - littleVGG
 Another model we have tried is called littleVGG and the architecture is shown below. It has 6 convolutional layers. For this model, we incorporate data augmentations, such as rescale 1/255, rotation rage = 30, shear range = 30, zoom range =30, as well horizontal flip. THe loss function is categorical cross entropy, and the optimizer is Adam with learning rate of 0.0001 and decay of 1e-6. 
@@ -44,7 +44,7 @@ Here we used a pre-trained model Resnet50 to conduct transfer learning for facia
  
 The architecture of the transfer learning model consists of Resnet50 and one additional dense layer. The model used sgd as an optimizer with learning rate of 0.1, decay = 1e-6, and momentum = 0.9. The loss function is categorical cross entropy. The model has 10 epochs and the train/test accuracy reached almost 100% after 3 epochs, indicating very fast convergence and high level of performance. The model weights were saved in .h5 format and loaded on the edge device (Jetson TX2) for inference. 
 
-![Test Image 6](images/resnet50.png?raw=true)
+<img src="images/resnet50.png" width="800">
 
 ## 4. Pipeline
 The pipeline of virtual classroom TA prototype is shown below. The local PC was used to collect data, preprocess data, and manage the virtual machine. The preprocessing steps included resizing the image, data augmentation, changing image color to RGB or grey, and so forth. The local PC was also used to conduct EDA. 
@@ -55,7 +55,7 @@ One P100 virtual server is provisioned on IBM cloud with Ubuntu 18.4 operating s
 
 Prototype outputs are visualized using Jetson TX2. For real-time face emotion detection, we load the final model weights in Jetson TX2, and output the emotion classes on the screen with classification text. The second product is emotion timeline, we basically run a python script on Jetson TX2 to crop out the face and make prediction of emotion using our final model. Plot the emission summary curve graph as our final output. For more details please see section 5 for end products. 
 
-<img src="images/pipeline.png" width="500" title="hover text">
+<img src="images/pipeline.png" width="800">
 
 ## 5. End Product
 ## 6. Model Performance
