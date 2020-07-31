@@ -18,10 +18,12 @@ The model used by Virtual TA for facial recognition and expression classificatio
 Initial dataset was downloaded from Kaggle competition “Facial expression recognition with deep learning”. The dataset consists of 36000 images for 7 classes, which are Angry, Disgust, Fear, Happy, Sad, Surprise, and Neutral. The images are 48x48 pixels and grey in color. However, the problem of using this dataset is first, it doesn’t have any asain face and second, it doesn’t have the class of most interest. We tried to generate the missing part of data and combine it with the Kaggle dataset but didn’t see significant improvements on model performance. We hypothesized that higher resolution may be needed so we decided not to use this dataset for model training and validation.
 
 <img src="images/kaggle_dataset.png" width="300">
+
 ### 2.2 Cohn-Kanade (CK) AU-Coded Facial Expression dataset
 The Cohn-Kanade (CK) AU-coded Facial Expression dataset includes 2000 images sequences from over 200 subjects (university students). This dataset was analysed by Cohn, Zlochower, LIen, & Kanade (1999) and by Lien, Kanade, Cohn, & Li (2000). These papers can be downloaded from http://www.cs.cmu.edu/~face. These images are 480x480 pixels with grey scale. The image sequences from neutral to target motion and the target emotion is the last frame (as shown below). The final frame of each image sequence was coded using FACS (Facial Action Coding System) which describes subjects’s expression in terms of action units (AUs). An Excel spreadsheet containing these FACS codes is available for our analysis. We did a round of investigation of these images and did not use this set of images in our final model to the complexity of the FACS coding system as well as the image sequence. The image sequence makes it harder for us to tell which image we need to use in our training model. 
 
 <img src="images/CK_dataset.png" width="400">
+
 ### 2.3 Custom dataset
 For our final model, we eventually chose to use our own custom dataset. This dataset contains more than 4000 images from 6 subjects and the sample images are shown below. The images are 224x224 pixels with color scale (RGB). This dataset contains 3 classes which are confused, happy, and surprised. The image was captured by Jetson TX2, face is cropped to 224x224 using the open-cv face detection using Haar Cascades similar to HW03. After faces are cropped out and categorized into different classes, images are uploaded to VM in ibm cloud for training/testing the model. 
 
