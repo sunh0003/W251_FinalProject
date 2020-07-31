@@ -1,8 +1,8 @@
-## Introduction
+## 1. Introduction
 
-## Data and EDA
+## 2. Data and EDA
 
-## Model
+## 3. Model
 ### 3.1 Model 1 - Kaggle Competition model
 Kaggle hosted the competition for facial emotion recognition in 2016. In this competition, 7 classes of facial emotions (Angry, Disgust, Fear, Happy, Sad, Surprise, and Neutral) are classified using CNN model. For our project, we are interested in identifying students’ confusion and distraction emotion. Hence we add two more classes (confused and distraction) to the input with custom labelled data.  The model architecture is shown below with 4 convolution layers and 2 fully connected dense layers. Batch normalization and dropout are used to future improve model performance. The model loss function is categorical cross-entropy and the model optimizer is Adam. Model loss and accuracy were plotted for at different epochs. The train accuracy is 0.75 while test accuracy is 0.62. Based on the confusion matrix (normalized) results, one can see that the model has poor performance. The model generalized the facial emotions more to “happy”, “neutral” and “sad”. We also conduct real-time tests with jetson TX2 webcam and the model is not able to correctly classify facial emotions. One possible reason for low model performance is the resolution of the image and the color of the image (grey). Lower resolution and grey color mean that there are less features to extract and generalize the model prediction. Therefore we tried to improve the model performance by using customized RGB images with high resolution (224x224).
 ### 3.2 Model 2 - littleVGG
@@ -16,7 +16,7 @@ Here we used a pre-trained model Resnet50 to conduct transfer learning for facia
  
 The architecture of the transfer learning model consists of Resnet50 and one additional dense layer. The model used sgd as an optimizer with learning rate of 0.1, decay = 1e-6, and momentum = 0.9. The loss function is categorical cross entropy. The model has 10 epochs and the train/test accuracy reached almost 100% after 3 epochs, indicating very fast convergence and high level of performance. The model weights were saved in .h5 format and loaded on the edge device (Jetson TX2) for inference. 
 
-
-## Demo
-
-## Future Steps
+## 4. Pipeline
+## 5. End Product
+## 6. Model Performance
+## 7. Future Steps
