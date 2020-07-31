@@ -54,7 +54,9 @@ The customized dataset was collected using Jetson TX2. Customized python scripts
 One P100 virtual server is provisioned on IBM cloud with Ubuntu 18.4 operating system and tensorflow, CUDA 10.0. We containerized the code via Docker image and the framework for our model is Keras. We leverage transfer learning from ResNet50 with pre-trained weights and add one last layer to make the prediction for 3 classes. We also conducted hyperparameter tuning to optimize the model performance. In this part (on VM in the cloud), it is an iterative process. We tried with various datasets (section 2) to build different models (section 3). Eventually customized dataset (224x224 pixel color image) and transfer learning model were selected as our final model. 
 
 Prototype outputs are visualized using Jetson TX2. For real-time face emotion detection, we load the final model weights in Jetson TX2, and output the emotion classes on the screen with classification text. The second product is emotion timeline, we basically run a python script on Jetson TX2 to crop out the face and make prediction of emotion using our final model. Plot the emission summary curve graph as our final output. For more details please see section 5 for end products. 
-<img src="images/pipeline.png width="500" title="hover text">
+
+<img src="images/pipeline.png" width="500" title="hover text">
+
 ## 5. End Product
 ## 6. Model Performance
 ## 7. Future Steps
