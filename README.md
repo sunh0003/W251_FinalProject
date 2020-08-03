@@ -115,7 +115,8 @@ We see great opportunities and advances in Robo-Sensei. One future step is to re
 
 ## Reference
 Real-time: <br>
-1. https://medium.com/datadriveninvestor/real-time-facial-expression-recognition-f860dacfeb6a <br> <br>
+1. https://medium.com/datadriveninvestor/real-time-facial-expression-recognition-f860dacfeb6a <br> 
+
 Facial Expression Databases: <br>
 2. https://en.wikipedia.org/wiki/Facial_expression_databases#cite_note-8 <br>
 3. https://insights.insofe.com/index.php/2019/05/13/facial-emotion-recognition-for-classroom-video-analytics/#:~:text=Facial%20Emotion%20Recognition%20is%20the,academic%20and%20online%20teaching%20institutes.<br>
