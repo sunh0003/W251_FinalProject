@@ -69,13 +69,13 @@ Prototype outputs are visualized using Jetson TX2. For real-time face emotion de
 
 Real time analysis of the facial expressions is the first critical feature of our prototype. Using camera input, it is expected to capture faces, classify the expressions and display the last emotion detected (figure 5-1). This feature allows a virtual class instructor to tell instantly whether the student understands or gets confused on the concept. Accordingly, the instructor can address misunderstanding or confusion immediately, maintaining the virtual class productivity. 
 
-<img src="images/Fig5-1.png" width="800">
+<img src="images/Fig5-1.png" width="600">
 
 ### 5.2 Emotion Timeline
 
 The commercial virtual class software (e.g. zoom) usually grants the instructors access to the video of the recorded lecture. Therefore, we designed the other feature of the prototype, which is to process a recorded video, analyze the facial expression and output the statistics of interest. This feature allows instructors to retrospect the virtual class for a comprehensive analysis of the moments when students get confused or surprised. 
 In the demo, we created a pipeline of real-time facial recognition during an online conference session. After the conference ended, all faces captured were analyzed for expression classification. Overall confused levels by time were plotted as shown below.
-<img src="images/Fig5-2.png" width="800">
+<img src="images/Fig5-2.png" width="600">
 
 ## 6. Model Performance
 
@@ -88,7 +88,7 @@ Run prediction after each picture
 
 Model performance on real-time facial expression classification is shown in the table below. The average accuracy is 0.91, 0.61, 0.85 for classes of happy, surprised, and confused, respectively. Interestingly, we didn’t expect to see the lowest model accuracy on the surprised class because both happy and surprised classes have more pronounced face expressions, while confused class involves more subtle and less uniformed facial expressions, such as frown, crooked mouth, blink one eye, etc. Some testers could emphasize a frown forehead with a crooked mouth, but others were not naturally able to do so. These more pronounced expressions could yield better accuracy. To improve our accuracy, our model could be more generalized if we have better training and validation images. 
 
-<img src="images/Fig6-1.png" width="800">
+<img src="images/Fig6-1.png" width="600">
 
 ### 6.2 Emotion Timeline
 Testing methodology:
