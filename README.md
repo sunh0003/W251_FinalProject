@@ -114,8 +114,8 @@ Throughout the development work, we had faced several challenges. One key challe
 We see great opportunities and advances in Robo-Sensei. One future step is to replace  current openCV Haar Cascades face detection model with Multi-task cascaded convolutional neural network(MTCNN). Secondly, it will bring great benefit to provide additional data dimension, for example associating images with voice to provide information on which phrases or topics are resulting in certain emotions. Finally, it would be a great addition to enhance the model with more classes, such as distraction or concentration. This will further help teachers to understand student emotions and learning behaviors.
 
 ## Reference
-Real-time:
-https://medium.com/datadriveninvestor/real-time-facial-expression-recognition-f860dacfeb6a
+Real-time: <br>
+<ul> https://medium.com/datadriveninvestor/real-time-facial-expression-recognition-f860dacfeb6a
 Facial Expression Databases:
 https://en.wikipedia.org/wiki/Facial_expression_databases#cite_note-8
 https://insights.insofe.com/index.php/2019/05/13/facial-emotion-recognition-for-classroom-video-analytics/#:~:text=Facial%20Emotion%20Recognition%20is%20the,academic%20and%20online%20teaching%20institutes.
