@@ -42,7 +42,7 @@ The second model was littleVGG and the architecture is shown below (Fig 3-2). It
 Experiments have been performed with this model trained for 9 classes, 7 classes and 5 classes, and we obtained roughly similar results. All experiments (9,7,5 classes) contained the customized classes (CONFUSED and DISTRACTED). For simplicity, we only show the model results for 7 classes. The normalized confusion matrix results of 7 classes are shown below (Fig 3-2).  LittleVGG model can detect most of the classes except ANGRY and SAD. 
 The model performance of littleVGG (model 2) is better than that of Kaggle competition model (model 2). We tested littleVGG model on Jetson TX2 for real-time emotion classification and the result is not optimum, hence we decided to further improve the model. 
 
-
+<img src="images/littleVGG.png" width="800">
 
 ### 3.3 Model 3 - Transfer Learning with Resnet50
 Transfer learning is a research problem in machine learning that focuses on storing knowledge gained while solving one problem and applying it to a different but related problem. In the domain of deep learning, transfer learning usually involves using a pre-trained model, which has been previously trained on a dataset and contains the weights and biases that represent the features of the dataset, to “learn” something else and by doing so, the training time will be significantly reduced without compromising the model performance. 
@@ -69,11 +69,13 @@ Prototype outputs are visualized using Jetson TX2. For real-time face emotion de
 
 Real time analysis of the facial expressions is the first critical feature of our prototype. Using camera input, it is expected to capture faces, classify the expressions and display the last emotion detected (figure 5-1). This feature allows a virtual class instructor to tell instantly whether the student understands or gets confused on the concept. Accordingly, the instructor can address misunderstanding or confusion immediately, maintaining the virtual class productivity. 
 
+<img src="images/Fig5-1.png" width="800">
+
 ### 5.2 Emotion Timeline
 
 The commercial virtual class software (e.g. zoom) usually grants the instructors access to the video of the recorded lecture. Therefore, we designed the other feature of the prototype, which is to process a recorded video, analyze the facial expression and output the statistics of interest. This feature allows instructors to retrospect the virtual class for a comprehensive analysis of the moments when students get confused or surprised. 
 In the demo, we created a pipeline of real-time facial recognition during an online conference session. After the conference ended, all faces captured were analyzed for expression classification. Overall confused levels by time were plotted as shown below.
-
+<img src="images/Fig5-2.png" width="800">
 
 ## 6. Model Performance
 
@@ -84,9 +86,9 @@ Test against 4 different users
 Take 20 pictures per emotions per users
 Run prediction after each picture
 
-Model performance on real-time facial expression classification is shown in the table below. The average accuracy is 0.91, 0.61, 0.85 for classes of happy, surprised, and confused, respectively. 
+Model performance on real-time facial expression classification is shown in the table below. The average accuracy is 0.91, 0.61, 0.85 for classes of happy, surprised, and confused, respectively. Interestingly, we didn’t expect to see the lowest model accuracy on the surprised class because both happy and surprised classes have more pronounced face expressions, while confused class involves more subtle and less uniformed facial expressions, such as frown, crooked mouth, blink one eye, etc. Some testers could emphasize a frown forehead with a crooked mouth, but others were not naturally able to do so. These more pronounced expressions could yield better accuracy. To improve our accuracy, our model could be more generalized if we have better training and validation images. 
 
-Interestingly, we didn’t expect to see the lowest model accuracy on the surprised class because both happy and surprised classes have more pronounced face expressions, while confused class involves more subtle and less uniformed facial expressions, such as frown, crooked mouth, blink one eye, etc. Some testers could emphasize a frown forehead with a crooked mouth, but others were not naturally able to do so. These more pronounced expressions could yield better accuracy. To improve our accuracy, our model could be more generalized if we have better training and validation images. 
+<img src="images/Fig6-1.png" width="800">
 
 ### 6.2 Emotion Timeline
 Testing methodology:
@@ -98,10 +100,9 @@ Run prediction after each picture straight after conference concluded
 Input: 1 min pictures of 3 different users.
 Output: Group and individual predicted emotion charts
 
-Shown below are the plots of individual expression classification with x-axis as the video timestamp and y-axis as the predicted probability on a certain class of facial expression. Each dot represents one second prediction and the curved line represents the moving average probability of 3 seconds. 
+Shown below are the plots of individual expression classification with x-axis as the video timestamp and y-axis as the predicted probability on a certain class of facial expression. Each dot represents one second prediction and the curved line represents the moving average probability of 3 seconds. Based on the plots, our model can classify happy most accurately, followed by confused, and then surprised. The results are consistent with that of real-time analysis. One can see clearly the time borderline when students change their facial emotion every 20 seconds. This clearly demonstrates that our prototype can work appropriately to help teachers identify and trace student emotion changes and their learning behaviors. 
 
-Based on the plots, our model can classify happy most accurately, followed by confused, and then surprised. The results are consistent with that of real-time analysis. One can see clearly the time borderline when students change their facial emotion every 20 seconds. This clearly demonstrates that our prototype can work appropriately to help teachers identify and trace student emotion changes and their learning behaviors. 
-
+<img src="images/Fig6-2.png" width="800">
 
 ## 7. Future Steps
 Virtual classrooms are undoubtedly the new normal. To address the uncertainty of the effectiveness of online classes in comparison to the face-to-face classrooms, we have developed Robo-Sensei the Virtual TA, a prototype of deep learning based facial expression recognition application. With Robo-Sensei, virtual class instructors can identify confusion or misunderstanding among students instantly and can address that in time to maintain the students’ engagements and motivations. 
