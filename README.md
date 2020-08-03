@@ -115,13 +115,13 @@ We see great opportunities and advances in Robo-Sensei. One future step is to re
 
 ## Reference
 Real-time: <br>
-<ul> https://medium.com/datadriveninvestor/real-time-facial-expression-recognition-f860dacfeb6a
-Facial Expression Databases:
-https://en.wikipedia.org/wiki/Facial_expression_databases#cite_note-8
-https://insights.insofe.com/index.php/2019/05/13/facial-emotion-recognition-for-classroom-video-analytics/#:~:text=Facial%20Emotion%20Recognition%20is%20the,academic%20and%20online%20teaching%20institutes.
-https://www.kaggle.com/jonathanoheix/face-expression-recognition-with-deep-learning
-http://app.visgraf.impa.br/database/faces/
-https://www.kaggle.com/apollo2506/facial-recognition-dataset?select=Testing
-https://towardsdatascience.com/real-time-face-recognition-an-end-to-end-project-b738bb0f7348
-https://github.com/martin-chobanyan/emotion
+1. https://medium.com/datadriveninvestor/real-time-facial-expression-recognition-f860dacfeb6a <br> <br>
+Facial Expression Databases: <br>
+2. https://en.wikipedia.org/wiki/Facial_expression_databases#cite_note-8 <br>
+3. https://insights.insofe.com/index.php/2019/05/13/facial-emotion-recognition-for-classroom-video-analytics/#:~:text=Facial%20Emotion%20Recognition%20is%20the,academic%20and%20online%20teaching%20institutes.<br>
+4. https://www.kaggle.com/jonathanoheix/face-expression-recognition-with-deep-learning<br>
+5. http://app.visgraf.impa.br/database/faces/<br>
+6. https://www.kaggle.com/apollo2506/facial-recognition-dataset?select=Testing<br>
+7. https://towardsdatascience.com/real-time-face-recognition-an-end-to-end-project-b738bb0f7348<br>
+8. https://github.com/martin-chobanyan/emotion<br>
 
